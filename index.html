@@ -40,10 +40,12 @@
     </nav>
 
     <div class="navbar-right">
-      <img src="assets/logo.png" alt="Logo JBC Arequipa" class="navbar-logo">
-      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-        <i data-feather="menu"></i>
-      </button>
+      <a href="#" class="logo">
+        <img src="assets/logo.png" alt="Logo JBC Arequipa" class="navbar-logo">
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <i data-feather="menu"></i>
+        </button>
+      </a>
     </div>
 </header>
 
@@ -223,58 +225,82 @@
   <p class="coord-label gallery-hint">Actividades que compartimos en comunidad</p>
 </section>
 
-<!-- ============ RED / TESTIMONIOS ============ -->
+<!-- ============ COMUNIDADES ============ -->
 <section id="red" class="section">
-  <p class="coord-label section-tag">COMUNIDADES DE AMOR</p>
+  <p class="coord-label section-tag center">COMUNIDADES DE AMOR</p>
   <div class="quote-grid">
     <blockquote class="quote">
       <h4>TRONCO DE JESÉ</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+      <p>"Ubicada en Cerro Colorado"</p>
       <p class="coord-label quote-source">— texto biblico</p>
     </blockquote>
     <blockquote class="quote">
       <h4>VICTORIOSOS EN YAVHE</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+      <p>"Ubicada en Alto Selva Alegre"</p>
       <p class="coord-label quote-source">— texto biblico</p>
     </blockquote>
     <blockquote class="quote">
       <h4>GUARDIANES DE JERUSALEN</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+      <p>"Ubicada en Hunter"</p>
       <p class="coord-label quote-source">— texto biblico</p>
     </blockquote>
     <blockquote class="quote">
       <h4>CASPI</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+      <p>"Ubicada en Socabaya"</p>
       <p class="coord-label quote-source">— texto biblico</p>
     </blockquote>
     <blockquote class="quote">
       <h4>HIJOS DE JUDÁ</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+      <p>"Ubicada en Paucarpata"</p>
       <p class="coord-label quote-source">— texto biblico</p>
     </blockquote>
     <blockquote class="quote">
-      <h4>TRONCO DE JESE</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+      <h4>CAMINO A LA NUEVA JERUSALEN</h4>
+      <p>"Ubicada en Hunter"</p>
       <p class="coord-label quote-source">— texto biblico</p>
     </blockquote>
     <blockquote class="quote">
-      <h4>TRONCO DE JESÉ</h4>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</p>
+      <h4>FORTALEZA DE DIOS</h4>
+      <p>"Ubicada en Paucarpata"</p>
+      <p class="coord-label quote-source">— texto biblico</p>
+    </blockquote>
+    <blockquote class="quote">
+      <h4>VALIENTES DE DAVID</h4>
+      <p>"Ubicada en Paucarpata"</p>
+      <p class="coord-label quote-source">— texto biblico</p>
+    </blockquote>
+    <blockquote class="quote">
+      <h4>EJERCITO DE YAVHÉ</h4>
+      <p>"Ubicada en Alto Selva Alegre"</p>
       <p class="coord-label quote-source">— texto biblico</p>
     </blockquote>
   </div>
+    <div class="mission-card">
+    <!-- <i data-feather="heart" class="mission-icon"></i> -->
+    <h3 class="mission-title"></h3>
+    <p class="mission-text">
+      Somos una red de comunidades de jóvenes, distribuidas por zonas en toda la ciudad de Arequipa,
+      para estar cerca tuyo.
+    </p>
+  </div>
 </section>
 
-<!-- ============ CTA / ÚNETE ============ -->
+<!-- ============ ÚNETE ============ -->
 <section id="unete" class="section cta-section">
   <p class="coord-label section-tag center">CONECTAR</p>
-  <h2 class="cta-title">Tu próximo click te acerca a Cristo.</h2>
-  <p class="cta-text">Déjanos tu correo y te avisamos del próximo encuentro.</p>
+  <h2 class="section-versicle">Que nadie te desprecie por ser joven. Al contrario, trata de ser un modelo para los creyentes en tu manera de hablar y de vivir.<br>
+      -- 1 Timoteo 4:12
+  </h2>
 
-  <form id="joinForm" class="join-form">
-    <input type="email" required placeholder="tu@correo.com" class="join-input">
-    <button type="submit" class="btn-primary">UNIRME</button>
-  </form>
+  <div class="join-form">
+    <a href="https://wa.me/51955358494" target="_blank" rel="noopener" class="btn-primary btn-whatsapp">
+      <svg class="inline-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12.004 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.462 3.484 1.34 5.003l-1.423 5.198a1 1 0 0 0 1.226 1.226l5.198-1.423a9.958 9.958 0 0 0 5.003 1.34c5.514 0 9.997-4.483 9.997-9.997s-4.483-9.997-9.997-9.997zm0 18.194a8.164 8.164 0 0 1-4.166-1.14.834.834 0 0 0-.652-.08l-3.038.832.833-3.038a.833.833 0 0 0-.08-.651A8.164 8.164 0 0 1 3.807 12c0-4.522 3.68-8.197 8.197-8.197 4.521 0 8.197 3.68 8.197 8.197s-3.68 8.197-8.197 8.197z"/>
+      </svg>
+      UNIRME
+    </a>
+  </div>
 </section>
 
 <!-- ============ FOOTER ============ -->

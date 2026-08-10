@@ -38,14 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Join form (placeholder — connect to your email/WhatsApp service)
-  const joinForm = document.getElementById('joinForm');
-  joinForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Formulario de ejemplo — conéctalo a tu servicio de email o WhatsApp.');
-    joinForm.reset();
-  });
-
   // 4. Gallery auto-scroll based on mouse position near edges
   const galleryScroll = document.getElementById('galleryScroll');
   if (galleryScroll) {
