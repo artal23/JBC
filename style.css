@@ -5,7 +5,7 @@
 
 :root {
   --ink: #823215;
-  --inkline: #232D31;
+  --inkline: #767825;
   --paper: #F2EFE9;
   --paperdim: #DAD5C9;
   --amber: #FFB627;
@@ -242,13 +242,19 @@ a:focus-visible, button:focus-visible {
 .section-tag.center { text-align: center; }
 .section-title {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(1.75rem, 3.5vw, 2.25rem);
   line-height: 1.35;
 }
 .section-title-narrow { max-width: 34rem; margin-bottom: 3.5rem; }
 .section-text { color: var(--paperdim); font-size: 1.125rem; line-height: 1.65; }
 
+.section-versicle {
+  font-family: cursive;
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  line-height: 1.35;
+}
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
@@ -258,6 +264,34 @@ a:focus-visible, button:focus-visible {
 @media (min-width: 768px) {
   .grid-2 { grid-template-columns: 1fr 1fr; }
 }
+.grid-2-center {
+  justify-items: center;
+  text-align: center;
+}
+
+.mission-card {
+  margin-top: 3.5rem;
+  border: 1px solid var(--inkline);
+  background: rgba(35, 45, 49, 0.2);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mission-icon {
+  width: 28px; height: 28px;
+  color: var(--amber);
+  margin: 0 auto 1.25rem;
+}
+.mission-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.mission-text { color: var(--paperdim); line-height: 1.6; }
 
 /* ===========================
    Feature grid
@@ -273,6 +307,7 @@ a:focus-visible, button:focus-visible {
 }
 @media (min-width: 640px) {
   .feature-grid { grid-template-columns: 1fr 1fr; }
+  .feature-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
 }
 .feature-card {
   background: var(--ink);
