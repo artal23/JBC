@@ -70,14 +70,25 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
   }
 
-  // 5. Lightbox: abrir foto en grande al hacer clic
+  // 5. Lightbox: abrir foto en grande al hacer clic, con navegación izq/der
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
 
-  function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
+  const galleryPhotos = Array.from(document.querySelectorAll('.gallery-photo'));
+  let currentIndex = 0;
+
+  function showAt(index) {
+    currentIndex = (index + galleryPhotos.length) % galleryPhotos.length;
+    const btn = galleryPhotos[currentIndex];
+    const img = btn.querySelector('img');
+    lightboxImg.src = btn.dataset.full;
+    lightboxImg.alt = img ? img.alt : '';
+  }
+  function openLightbox(index) {
+    showAt(index);
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -86,20 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.gallery-photo').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const full = btn.dataset.full;
-      const img = btn.querySelector('img');
-      openLightbox(full, img ? img.alt : '');
-    });
+  galleryPhotos.forEach((btn, index) => {
+    btn.addEventListener('click', () => openLightbox(index));
   });
+
+  lightboxPrev.addEventListener('click', () => showAt(currentIndex - 1));
+  lightboxNext.addEventListener('click', () => showAt(currentIndex + 1));
 
   lightboxClose.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
   document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
     if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showAt(currentIndex - 1);
+    if (e.key === 'ArrowRight') showAt(currentIndex + 1);
   });
 
 });
