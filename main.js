@@ -38,6 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 3. Aparición suave de bloques al entrar en pantalla
+  const revealTargets = document.querySelectorAll(
+    '.section-tag, .section-title, .section-versicle, .section-text, .mission-card, .feature-grid, .quote, .gallery-scroll'
+  );
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealTargets.forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  }
+
   // 4. Gallery auto-scroll based on mouse position near edges
   const galleryScroll = document.getElementById('galleryScroll');
   if (galleryScroll) {

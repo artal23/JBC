@@ -5,7 +5,8 @@
 
 :root {
   --ink: #823215;
-  --inkline: #767825;
+  --ink-deep: #5A200C;
+  --inkline: rgba(255, 182, 39, 0.22);
   --paper: #F2EFE9;
   --paperdim: #DAD5C9;
   --amber: #FFB627;
@@ -15,6 +16,7 @@
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -67,8 +69,8 @@ a:focus-visible, button:focus-visible {
   transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 .navbar.scrolled {
-  background: rgba(18, 24, 27, 0.88);
-  border-bottom-color: rgba(35, 45, 49, 0.8);
+  background: rgba(50, 17, 6, 0.88);
+  border-bottom-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
 }
 .navbar-inner {
@@ -147,9 +149,13 @@ a:focus-visible, button:focus-visible {
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 1rem;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
-.btn-primary:hover { background: #fff; }
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
 
 .btn-secondary {
   display: inline-block;
@@ -169,7 +175,7 @@ a:focus-visible, button:focus-visible {
   padding: 10rem 1.5rem 7rem;
   border-bottom: 1px solid var(--inkline);
   background-image:
-    linear-gradient(to bottom, rgba(130, 50, 21, 0.82), rgba(18, 24, 27, 0.92)),
+    linear-gradient(to bottom, rgba(130, 50, 21, 0.82), rgba(50, 17, 6, 0.92)),
     url("assets/bg.jpg");
   background-size: cover;
   background-position: center;
@@ -250,11 +256,27 @@ a:focus-visible, button:focus-visible {
 .section-text { color: var(--paperdim); font-size: 1.125rem; line-height: 1.65; }
 
 .section-versicle {
-  font-family: cursive;
+  font-family: var(--font-serif);
+  font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  line-height: 1.35;
+  font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+  line-height: 1.3;
+  color: var(--paper);
 }
+.versicle-ref {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  color: var(--amber);
+}
+.versicle-ref::before { content: "— "; }
+.versicle-wide {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+/* Separación entre grupos de tarjetas (Reuniones / Eventos) */
+.feature-grid + .section-title { margin-top: 5rem; }
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr;
@@ -272,7 +294,7 @@ a:focus-visible, button:focus-visible {
 .mission-card {
   margin-top: 3.5rem;
   border: 1px solid var(--inkline);
-  background: rgba(35, 45, 49, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   padding: 2.5rem;
   text-align: center;
@@ -314,7 +336,7 @@ a:focus-visible, button:focus-visible {
   padding: 2rem;
   transition: background-color 0.25s ease;
 }
-.feature-card:hover { background: rgba(35, 45, 49, 0.4); }
+.feature-card:hover { background: rgba(0, 0, 0, 0.15); }
 .feature-icon {
   width: 22px; height: 22px;
   color: var(--amber);
@@ -334,7 +356,7 @@ a:focus-visible, button:focus-visible {
 =========================== */
 .event-card {
   border: 1px solid var(--inkline);
-  background: rgba(35, 45, 49, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   padding: 2.5rem;
   display: grid;
@@ -374,11 +396,33 @@ a:focus-visible, button:focus-visible {
   .quote-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .quote {
-  border-left: 2px solid var(--amber);
-  padding-left: 1.25rem;
+  border: 1px solid var(--inkline);
+  border-left: 3px solid var(--amber);
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.12);
+  padding: 1.5rem 1.5rem 1.25rem;
   color: var(--paperdim);
   line-height: 1.6;
+  transition: transform 0.25s ease, background-color 0.25s ease;
 }
+.quote:hover {
+  transform: translateY(-3px);
+  background: rgba(0, 0, 0, 0.2);
+}
+.quote h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+}
+.quote-place {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.quote-place .inline-icon { color: var(--amber); flex-shrink: 0; }
 .quote-source { color: var(--copper); margin-top: 1rem; }
 
 /* ===========================
@@ -422,7 +466,7 @@ a:focus-visible, button:focus-visible {
 .btn-whatsapp .inline-icon { width: 18px; height: 18px; }
 .join-input {
   flex: 1;
-  background: rgba(35, 45, 49, 0.4);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--inkline);
   border-radius: 999px;
   padding: 0.85rem 1.25rem;
@@ -459,7 +503,7 @@ a:focus-visible, button:focus-visible {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 0.9rem 1rem;
-  background: linear-gradient(to top, rgba(18, 24, 27, 0.92), transparent);
+  background: linear-gradient(to top, rgba(50, 17, 6, 0.92), transparent);
   color: var(--paper);
   opacity: 0;
   transform: translateY(6px);
@@ -501,7 +545,7 @@ a:focus-visible, button:focus-visible {
   border-radius: 0.75rem;
   overflow: hidden;
   border: 1px solid var(--inkline);
-  background: rgba(35, 45, 49, 0.3);
+  background: rgba(0, 0, 0, 0.3);
   padding: 0;
   cursor: pointer;
   transition: border-color 0.25s ease;
@@ -529,7 +573,7 @@ a:focus-visible, button:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(18, 24, 27, 0.95);
+  background: rgba(50, 17, 6, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -561,7 +605,7 @@ a:focus-visible, button:focus-visible {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(35, 45, 49, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   border: 1px solid var(--inkline);
   border-radius: 50%;
   color: var(--paper);
@@ -573,7 +617,7 @@ a:focus-visible, button:focus-visible {
   justify-content: center;
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
-.lightbox-nav:hover { background: rgba(35, 45, 49, 0.85); border-color: var(--amber); }
+.lightbox-nav:hover { background: rgba(0, 0, 0, 0.85); border-color: var(--amber); }
 .lightbox-nav svg { width: 24px; height: 24px; }
 .lightbox-prev { left: 1rem; }
 .lightbox-next { right: 1rem; }
@@ -589,7 +633,7 @@ a:focus-visible, button:focus-visible {
 /* ===========================
    Footer
 =========================== */
-.footer { border-top: 1px solid var(--inkline); }
+.footer { border-top: 1px solid var(--inkline); background: var(--ink-deep); }
 .footer-inner {
   max-width: 72rem;
   margin: 0 auto;
@@ -624,7 +668,7 @@ a:focus-visible, button:focus-visible {
   .nav-links {
     position: fixed;
     top: 4rem; left: 0; right: 0;
-    background: var(--ink);
+    background: var(--ink-deep);
     border-bottom: 1px solid var(--inkline);
     flex-direction: column;
     align-items: flex-start;
@@ -641,4 +685,17 @@ a:focus-visible, button:focus-visible {
     pointer-events: auto;
   }
   .btn-nav-mobile { display: inline-block; }
+}
+/* ===========================
+   Aparición al hacer scroll
+=========================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
